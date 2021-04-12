@@ -89,6 +89,8 @@ public class QueueImpl implements Queue {
 ```
 
   #### 원형큐
+  ![스크린샷 2021-04-12 오후 6 08 01](https://user-images.githubusercontent.com/58363663/114414447-c7ff1380-9be9-11eb-8fa5-344f5da5eb18.png)
+  
 - 원형큐는 선형큐의 문제점을 보완하는 구조로 큐의 맨 끝과 맨 처음이 연결된 원형 모양의 큐이다.
       [잘 정리된 블로그](https://mailmail.tistory.com/41)
 
