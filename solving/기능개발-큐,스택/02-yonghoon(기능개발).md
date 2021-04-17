@@ -1,6 +1,6 @@
 # 알고리즘 스터디 문제풀이 (이용훈) 2021-04-17(SAT)
 
-## 2. 기능개발 문제
+## 2. 기능개발
 
 ```python
 def solution(progresses, speeds):
