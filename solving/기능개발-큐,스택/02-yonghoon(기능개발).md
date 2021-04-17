@@ -11,7 +11,7 @@ def solution(progresses, speeds):
             for i in range(len(progresses)):
                 progresses[i] += speeds[i]
         while (progresses and progresses[0] >= 100):
-            progresses.pop(0)	# 누적된 progresse는 pop합니다
+            progresses.pop(0)	# 누적된 progress는 pop합니다
             speeds.pop(0)			# speed는 같이 움직이기 때문에 같이 pop 합니다
             count += 1				# stack의 top부터 완료된 진행도가 있을 때마다 answer에 누적시킵니다
         answer.append(count)
