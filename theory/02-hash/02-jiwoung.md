@@ -22,14 +22,14 @@
 
    
 
-   ![](C:\Users\jiwoung\AppData\Roaming\Typora\typora-user-images\image-20210419235046021.png)
+   ![](https://media.vlpt.us/images/adam2/post/ca25f031-e6a7-4ef0-8a82-6cf5a25a4153/image.png)
 
    
 
 2. Open Addressing(개방주소법) : 비어있는 해시를 찾아 데이터를 저장하는 기법 -> 해시과 value의 1:1관계를 유지시킨다.
    해시테이블 크기는 고정시키되 저장해 둘 위치를 잘 찾는데 관심을 둔 구조
 
-   ![](C:\Users\jiwoung\AppData\Roaming\Typora\typora-user-images\image-20210419235107360.png)
+   ![](https://media.vlpt.us/images/adam2/post/a0880019-83ec-44b2-ae32-67ab4d536445/image.png)
 
    
 
