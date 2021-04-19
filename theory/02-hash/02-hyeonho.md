@@ -72,7 +72,7 @@
 
 다음의 예시를 보자
 
-<img width="862" alt="스크린샷 2021-04-19 오후 9 54 19" src="https://user-images.githubusercontent.com/58363663/115255225-02782b80-a169-11eb-9027-799f5861f6fc.png">
+<img width="777" alt="스크린샷 2021-04-19 오후 11 53 05" src="https://user-images.githubusercontent.com/58363663/115256691-6d763200-a16a-11eb-8dc7-181b63e2e38c.png">
 
 다음과 같이 해쉬함수를 통해 동일한 해시값이 나온경우를 해시충돌이라고 한다.
 
@@ -82,7 +82,8 @@
 
 ### 1. Separate Chaining
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0eefa003-7baa-4fae-b867-85bc75556ffb/_2021-04-19__9.54.19.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0eefa003-7baa-4fae-b867-85bc75556ffb/_2021-04-19__9.54.19.png)
+<img width="862" alt="스크린샷 2021-04-19 오후 9 54 19" src="https://user-images.githubusercontent.com/58363663/115255225-02782b80-a169-11eb-9027-799f5861f6fc.png">
+
 
 위의 그림처럼 해시충돌이 일어날 경우 연결리스트를 통해 기존의 저장된 자료 다음에 위치시는 방법이다.
 
