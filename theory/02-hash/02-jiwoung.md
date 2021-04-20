@@ -124,6 +124,7 @@ object Test {
     println(ht.get("jae"))
   }
 }
+//https://try.kotlinlang.org/#/Kotlin%20Koans/Introduction/Java%20to%20Kotlin%20conversion/Task.kt
 ```
 
 ## 6. 해시 테이블 사용 예
