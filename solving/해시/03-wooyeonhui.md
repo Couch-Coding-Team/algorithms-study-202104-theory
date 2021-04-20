@@ -1,3 +1,5 @@
+## Python 3 : 해쉬안쓰고 똥싸기
+```
 def solution(clothes):
     hash_key = set([i[1] for i in clothes])
     
@@ -7,3 +9,4 @@ def solution(clothes):
         answer += (len(clothes) - fac)
         fac += 1
     return answer
+```
