@@ -48,13 +48,80 @@
 ## 5. 예제
 
 ```kotlin
-class String {
-  private val s:CharArray
-  public override fun hashCode():Int {
-    val hash = 0
-    for (i in 0 until length())
-    hash = s[i].toInt() + (31 * hash)
-    return hash
+internal class HashTable(size:Int) {
+  var data:Array<LinkedList<Node>>
+  init{
+    this.data = arrayOfNulls<LinkedList>(size)
+  }
+  fun getHashCode(key:String):Int {
+    val hashCode = 0
+    for (c in key.toCharArray())
+    {
+      hashCode += c.toInt()
+    }
+    return hashCode
+  }
+  fun convertToIndex(hashCode:Int):Int {
+    return hashCode % data.size
+  }
+  fun searchKey(list:LinkedList<Node>, key:String):Node {
+    if (list == null) return null
+    for (node in list)
+    {
+      if (node.key == key)
+      {
+        return node
+      }
+    }
+    return null
+  }
+  fun put(key:String, value:String) {
+    val hashCode = getHashCode(key)
+    val index = convertToIndex(hashCode)
+    val list = data[index]
+    if (list == null)
+    {
+      list = LinkedList<Node>()
+      data[index] = list
+    }
+    val node = searchKey(list, key)
+    if (node == null)
+    {
+      list.addLast(Node(key, value))
+    }
+    else
+    {
+      node.value = value
+    }
+  }
+  fun get(key:String):String {
+    val hashCode = getHashCode(key)
+    val index = convertToIndex(hashCode)
+    val list = data[index]
+    val node = searchKey(list, key)
+    return if (node == null) "Not found" else node.value
+  }
+  internal inner class Node(key:String, value:String) {
+    var key:String
+    var value:String
+    init{
+      this.key = key
+      this.value = value
+    }
+  }
+}
+object Test {
+  @JvmStatic fun main(args:Array<String>) {
+    val ht = HashTable(3)
+    ht.put("sung", "She is pretty")
+    ht.put("jin", "She is model")
+    ht.put("hee", "She is angel")
+    ht.put("min", "She is cute")
+    println(ht.get("sung"))
+    println(ht.get("jin"))
+    println(ht.get("hee"))
+    println(ht.get("min"))
+    println(ht.get("jae"))
   }
 }
 ```
