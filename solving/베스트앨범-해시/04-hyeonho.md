@@ -8,47 +8,6 @@ import java.util.PriorityQueue;
 import java.util.TreeMap;
 import org.junit.jupiter.api.Test;
 
-class MusicTest {
-
-
-    @Test
-    void test() {
-        Music music1 = new Music("classic", 100);
-        Music music2 = new Music("pop", 100);
-        Music music3 = new Music("classic", 100);
-        Music music4 = new Music("classic", 100);
-        Music music5 = new Music("classic", 100);
-
-        System.out.println(music1.equals(music3));
-
-        Map<Music, String> map = new HashMap<>();
-
-        UniqueNumber uniqueNumber1 = new UniqueNumber(1, 100);
-        UniqueNumber uniqueNumber2 = new UniqueNumber(2, 200);
-        UniqueNumber uniqueNumber3 = new UniqueNumber(3, 300);
-        UniqueNumber uniqueNumber4 = new UniqueNumber(4, 10000);
-        UniqueNumber uniqueNumber5 = new UniqueNumber(5, 4400);
-
-        PriorityQueue<UniqueNumber> tese = new PriorityQueue<>();
-        tese.add(uniqueNumber1);
-        tese.add(uniqueNumber2);
-        tese.add(uniqueNumber3);
-        tese.add(uniqueNumber4);
-        tese.add(uniqueNumber5);
-//
-//        System.out.println(tese.poll().index);
-//        System.out.println(tese.poll().index);
-//        System.out.println(tese.poll().index);
-//        System.out.println(tese.poll().index);
-//        System.out.println(tese.poll().index);
-
-        Solution solution = new Solution();
-        solution.solution(new String[]{"classic", "pop", "classic", "classic", "pop"},
-                new int[]{500, 600, 150, 800, 2500});
-    }
-
-}
-
 class Solution {
     public int[] solution(String[] genres, int[] plays) {
 
