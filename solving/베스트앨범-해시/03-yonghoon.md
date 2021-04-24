@@ -16,7 +16,8 @@ def solution(genres, plays):
     # 2. 장르별 총 재생 횟수 합산
     for key in dic:
         sum = 0
-        for arr in dic[key]:
+        arrs = dic[key]
+        for arr in arrs:
             sum += arr[1]
         dic[key].insert(0, sum)
         temp.append(dic[key])
