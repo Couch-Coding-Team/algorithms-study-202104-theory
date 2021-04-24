@@ -8,7 +8,7 @@ def solution(genres, plays):
 
     # 1. 장르별 재생 횟수 추가
     for i in range(len(genres)):
-        dic[genres[i]].append([i, plays[i]])  # 각 key값에 [고유 번호, 재생 횟수]
+        dic[genres[i]].append([i, plays[i]])  # 각 key값에 [고유 번호, 재생 횟수] append하기
         dic[genres[i]].sort(key=lambda x: (x[1]), reverse=True)  # 재생 횟수 기준으로 정렬
     # {'classic': [[3, 800], [0, 500], [2, 150]],'pop': [[4, 2500], [1, 600]]}
 
