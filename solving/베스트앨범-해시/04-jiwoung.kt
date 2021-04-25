@@ -1,25 +1,45 @@
 import java.util.*
-class Solution {
+class Solution{
     fun solution(genres: Array<String>, plays: IntArray): IntArray {
-        var answer = intArrayOf()
-       
-        val map1=HashMap<String,Int>()
+        val songMap = HashMap<String, MutableList<Song>>()
+        val songPlayMap = HashMap<String, Int>()
 
-         val map=HashMap<String,map1>()
-for(i in plays.indices){
-    if(map.getOrDefault(genres[i],0)!=0){
-        
-        map[genres[i]]=map[genres[i]]!!+plays[i]
-    }else map[genres[i]]=plays[i]
-}
-        return answer
+        genres.forEachIndexed { index, genre ->
+            val song = Song(index, plays[index])
+
+            if (songMap[genre] !== null) {
+                songMap[genre]?.add(song)
+            } else {
+                songMap[genre] = mutableListOf(song)
+            }
+
+            songPlayMap[genre] = (songPlayMap[genre] ?: 0) + plays[index]
+        }
+
+        songMap.forEach {
+            it.value.sortByDescending { v -> v.play }
+        }
+
+        var answer = mutableListOf<Int>()
+        songPlayMap.toList().sortedWith(compareByDescending { it.second }).forEach {
+            val songList = songMap[it.first]
+            val indexFilteredSongList = songList?.filterIndexed { index, song ->
+                index < 2
+            }
+
+            if (indexFilteredSongList != null) {
+                answer.addAll(indexFilteredSongList.map { song -> song.id })
+            }
+
+        }
+
+        return answer.toIntArray()
     }
 }
- class Node(key:String, value:String) {
-    var key:String
-    var value:String
-    init{
-      this.key = key
-      this.value = value
-    }
-  }
+
+data class Song(
+    var id: Int,
+    var play: Int
+)
+
+출처: https://sinna94.tistory.com/52 [Chungs]
