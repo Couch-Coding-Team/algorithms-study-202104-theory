@@ -1,45 +1,34 @@
-import java.util.*
-class Solution{
-    fun solution(genres: Array<String>, plays: IntArray): IntArray {
-        val songMap = HashMap<String, MutableList<Song>>()
-        val songPlayMap = HashMap<String, Int>()
+        fun solution(genres: Array<String>, plays: IntArray): IntArray {
+            var answer = ArrayList<Int>()
+            val map = HashMap<String,Int>()// 장르 순위
 
-        genres.forEachIndexed { index, genre ->
-            val song = Song(index, plays[index])
-
-            if (songMap[genre] !== null) {
-                songMap[genre]?.add(song)
-            } else {
-                songMap[genre] = mutableListOf(song)
+            for(i in genres.indices){
+                map[genres[i]] = map.getOrDefault(genres[i],0)+plays[i]
             }
 
-            songPlayMap[genre] = (songPlayMap[genre] ?: 0) + plays[index]
-        }
+            //내림차순으로 정렬된 키(장르)를 담는다
+            val al = ArrayList<String>(map.keys)
+            al.sortWith(Comparator { o1, o2-> (map[o2]!!.compareTo(map[o1]!!)) })
 
-        songMap.forEach {
-            it.value.sortByDescending { v -> v.play }
-        }
+            for(i in 0 until map.size){
+                var list=HashMap<String,Int>()
 
-        var answer = mutableListOf<Int>()
-        songPlayMap.toList().sortedWith(compareByDescending { it.second }).forEach {
-            val songList = songMap[it.first]
-            val indexFilteredSongList = songList?.filterIndexed { index, song ->
-                index < 2
+                for(j in genres.indices){
+
+
+                    if(al[i] == genres[j]){
+                        list[j.toString()] = plays[j]
+                    }
+                }
+//포문 두번 쓰기 싫어
+                val a2 = ArrayList<String>(list.keys)
+                a2.sortWith(Comparator { o1, o2-> (list[o2]!!.compareTo(list[o1]!!)) })
+                var result=ArrayList<String>(a2)
+                Log.d("알고리즘",  result.toList().toString())
+                answer.add(result[0].toInt())
+                answer.add(result[1].toInt())
+
             }
 
-            if (indexFilteredSongList != null) {
-                answer.addAll(indexFilteredSongList.map { song -> song.id })
-            }
-
+            return answer.toIntArray()
         }
-
-        return answer.toIntArray()
-    }
-}
-
-data class Song(
-    var id: Int,
-    var play: Int
-)
-
-출처: https://sinna94.tistory.com/52 [Chungs]
