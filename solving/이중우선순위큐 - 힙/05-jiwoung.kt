@@ -1,37 +1,45 @@
-   class Solution {
-        private val heapMin:ArrayList<Int>
-        private val heapMax:ArrayList<Int>
-        init{
-            heapMin = ArrayList()
-            heapMin.add(0)
-            heapMax = ArrayList()
-            heapMax.add(0)
-        }
+import java.util.*  
+class Solution {
+             fun solution(operations: Array<String>): IntArray {
+            var answer = intArrayOf(0,0)
+            //기본적으로 우선순위큐는 최소힙임
+            val maxq = PriorityQueue<Int>(Collections.reverseOrder())
+            val minq = PriorityQueue<Int>()
 
+           for (i in operations.indices){
+                var list=operations[i].split(" ")
 
-        fun solution(operations: Array<String>): IntArray {
+                when(list[0]){
+                    "I" -> {
+        maxq.offer(list[1].toInt())
+            minq.offer(list[1].toInt())
 
-            var answer = intArrayOf()
+                    }
+                    "D"->{
+                        if(maxq.isEmpty()) {
 
+                        }
+                        //최대
+                        else if (list[1].toInt()>0){
+            var max=maxq.poll()
+                            minq.remove(max)
+                        }
+                        //최소
+                        else{
+            var min=minq.poll()
+                            maxq.remove(min)
+                        }
 
-            var insert=operations
-            for (i in insert.indices) {
-                if (insert[i].toString().contains("|")) {
-                    val intStr = insert[i].replace(("[^\\d.]").toRegex(), "")
-                    heapMin.add(intStr.toInt())
-                } else if (insert[i].toString().contains("D 1")) {
-heapMin.sort()
-                    heapMin.remove(0)
-                } else if (insert[i].toString().contains("D -1")) {
-                    heapMin.reverse()
-                    heapMin.remove(0)
+                    }
                 }
+                //모든 연산을 처리한 후 큐가 비어있으면 [0,0] 비어있지 않으면 [최댓값, 최솟값]을 return 하도록 solution 함수를 구현해주세요.
+
+
             }
-if (heapMin.isEmpty()){
+            if (!maxq.isEmpty()){
+                answer=intArrayOf(maxq.poll(),minq.poll())
 
-    return answer=intArrayOf(0,0)
-}
-
+            }
             return answer
         }
     }
