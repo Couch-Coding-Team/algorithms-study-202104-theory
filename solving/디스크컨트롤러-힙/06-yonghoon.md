@@ -1,4 +1,5 @@
-def solution(jobs):
+```python
+    def solution(jobs):
     ans = 0
     def my_sort(job, arr):
         if (job[0] >= arr[0]):
@@ -33,4 +34,4 @@ def solution(jobs):
             ans += complete_time
             end_time = job[0] + job[1]
     return ans // len(jobs)
-                
+```
