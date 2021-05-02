@@ -1,19 +1,19 @@
 ```python
     def solution(jobs):
     ans = 0
-    def my_sort(job, arr):
-        if (job[0] >= arr[0]):
-            temp1 = job[1]*2 + arr[1] + job[0]-arr[0]
-            temp2 = arr[1]*2 + job[1] - (job[0]-arr[0])
-        else:
-            temp1 = job[1] * 2 + arr[1] - (arr[0] - job[0])
-            temp2 = arr[1]*2 + job[1] + (arr[0]-job[0])
-        if (temp1 < temp2):
-            return True
-        elif (temp1 == temp2 and job[0] < arr[0]):
-            return True
-        else:
-            return False
+        def my_sort(job, arr):
+            if (job[0] >= arr[0]):
+                temp1 = job[1]*2 + arr[1] + job[0]-arr[0]
+                temp2 = arr[1]*2 + job[1] - (job[0]-arr[0])
+            else:
+                temp1 = job[1] * 2 + arr[1] - (arr[0] - job[0])
+                temp2 = arr[1]*2 + job[1] + (arr[0]-job[0])
+            if (temp1 < temp2):
+                return True
+            elif (temp1 == temp2 and job[0] < arr[0]):
+                return True
+            else:
+                return False
     for i in range(len(jobs)-1):
         for j in range(len(jobs)-i-1):
             if (my_sort(jobs[j],jobs[j+1])):
