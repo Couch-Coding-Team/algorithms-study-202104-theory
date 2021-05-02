@@ -14,24 +14,24 @@
                 return True
             else:
                 return False
-            for i in range(len(jobs)-1):
-                for j in range(len(jobs)-i-1):
-                    if (my_sort(jobs[j],jobs[j+1])):
-                        jobs[j], jobs[j+1] = jobs[j+1], jobs[j]
-            jobs = jobs[::-1]
-            # print(jobs)
+        for i in range(len(jobs)-1):
+            for j in range(len(jobs)-i-1):
+                if (my_sort(jobs[j],jobs[j+1])):
+                    jobs[j], jobs[j+1] = jobs[j+1], jobs[j]
+        jobs = jobs[::-1]
+        # print(jobs)
     
-            end_time = 0
-            for job in jobs:
-                if (job[0] < end_time):
-                    complete_time = end_time - job[0] + job[1]
-                    # print(complete_time, end_time, job[0], job[1])
-                    ans += complete_time
-                    end_time = end_time + job[1]
-                else:
-                    complete_time = job[1]
-                    # print(complete_time)
-                    ans += complete_time
-                    end_time = job[0] + job[1]
-            return ans // len(jobs)
+        end_time = 0
+        for job in jobs:
+            if (job[0] < end_time):
+                complete_time = end_time - job[0] + job[1]
+                # print(complete_time, end_time, job[0], job[1])
+                ans += complete_time
+                end_time = end_time + job[1]
+            else:
+                complete_time = job[1]
+                # print(complete_time)
+                ans += complete_time
+                end_time = job[0] + job[1]
+        return ans // len(jobs)
 ```
