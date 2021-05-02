@@ -1,6 +1,6 @@
 ```python
     def solution(jobs):
-    ans = 0
+        ans = 0
         def my_sort(job, arr):
             if (job[0] >= arr[0]):
                 temp1 = job[1]*2 + arr[1] + job[0]-arr[0]
