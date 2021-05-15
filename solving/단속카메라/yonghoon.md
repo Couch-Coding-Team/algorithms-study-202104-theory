@@ -1,4 +1,5 @@
 ```python
+# try1) 브루트 포스
 # 정확성 테스트 통과까지 걸린 시간 : 25분
 
 def solution(routes):
@@ -26,6 +27,7 @@ def solution(routes):
 
 
 ```python
+# try2) 최악의 경우 O(n^2), 평균 O(n)인 경우
 # 새로운 아이디어 생각 결정짓는데 까지 걸린 시간 : 30분
 # 풀이 완료 : 1시간 30분
 import collections
