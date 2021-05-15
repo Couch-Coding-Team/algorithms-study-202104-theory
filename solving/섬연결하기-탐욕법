@@ -1,0 +1,33 @@
+class Solution {
+    fun solution(n: Int, costs: Array): Int {
+        var answer = 0
+        val set = IntArray(n)
+        for(i in 0 until set.size) {
+            set[i] = i //부모 설정
+        }
+        Arrays.sort(costs) { a, b -> a[2].compareTo(b[2]) } //간선의 비용순으로 정렬
+        for (i in 0 until costs.size) {
+            if(getParent(set,costs[i][0])!=getParent(set,costs[i][1])) { //같은 부모를 가지고 있는지 체크
+                answer+=costs[i][2]
+                unionParent(set, costs[i][0], costs[i][1])
+            } 
+        }
+        return answer
+    }
+    
+    fun getParent(set: IntArray, x: Int): Int { //부모를 찾는다
+
+        return if (set[x] == x) x
+        else {
+            getParent(set, set[x])
+        }
+    }
+
+    fun unionParent(set: IntArray, a: Int, b: Int) { //더 큰 쪽의 부모로 부모(root)를 합친다.
+        val num = getParent(set, a)
+        val num2 = getParent(set, b)
+
+        if(num < num2) set[num2] =num
+        else set[num] =num2
+    }
+}
