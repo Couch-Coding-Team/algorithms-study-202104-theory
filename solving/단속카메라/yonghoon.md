@@ -26,9 +26,8 @@ def solution(routes):
 
 
 ```python
-# 정확성 테스트 통과까지 걸린 시간 : 25분
-# 새로운 아이디어 생각 결정짓는데 까지 걸린 시간 : 25~53분
-# 풀이 완료 : 2시간
+# 새로운 아이디어 생각 결정짓는데 까지 걸린 시간 : 30분
+# 풀이 완료 : 1시간 30분
 import collections
 def solution(routes):
     routes.sort()
