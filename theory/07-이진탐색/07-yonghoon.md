@@ -29,19 +29,22 @@ python의 경우 max recursion depth가 1000이지만, 이 수준에 걸리려�
 
 ```python
 #1. recursion
-nums = [-3, -2, 0, 0, 1, 2, 10, 12, 30, 77, 77, 100, 632, 700, 788]
+arr = [-3, -2, 0, 0, 1, 2, 10, 12, 30, 77, 77, 100, 632, 700, 788]
 target = 632
+# arr = ['aaaaaa', 'aab', 'askhv', 'kbhvg', 'kghsdka', 'qkgasv', 'sdws', 'vhbs', 'zsdkvhb']
+# target = "qkgasv"
+
 
 def bin_search(start, end):
     mid = (start + end)//2
-    if (end == start and nums[mid] != target): return None	# 예외처리 필요함
-    if (nums[mid] == target):
+    if (end == start and arr[mid] != target): return None
+    if (arr[mid] == target):
         return mid
-    elif (nums[mid] < target):
+    elif (arr[mid] < target):
         return bin_search(mid+1, end)
-    elif (nums[mid] > target):
+    elif (arr[mid] > target):
         return bin_search(start, mid-1)
-ans = bin_search(0, len(nums)-1)
+ans = bin_search(0, len(arr)-1)
 print(ans)
 ```
 
@@ -55,20 +58,22 @@ recursion과는 다르게 예외처리가 별도로 필요하지 않음
 
 ```python
 #2. iteration
-nums = [-3, -2, 0, 0, 1, 2, 10, 12, 30, 77, 77, 100, 632, 700, 788]
+arr = [-3, -2, 0, 0, 1, 2, 10, 12, 30, 77, 77, 100, 632, 700, 788]
 target = 632
+arr = ['aaaaaa', 'aab', 'askhv', 'kbhvg', 'kghsdka', 'qkgasv', 'sdws', 'vhbs', 'zsdkvhb']
+target = "qkgasv"
 
 start = 0
-end = len(nums)-1
+end = len(arr)-1
 ans = None
 while(start <= end):
     mid = (start + end)//2
-    if (nums[mid] == target):
+    if (arr[mid] == target):
         ans = mid
         break
-    elif (nums[mid] < target):
+    elif (arr[mid] < target):
         start = mid+1
-    elif (nums[mid] > target):
+    elif (arr[mid] > target):
         end = mid-1
 print(ans)
 ```
