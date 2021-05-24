@@ -62,8 +62,8 @@ recursion과는 다르게 예외처리가 별도로 필요하지 않음
 #2. iteration
 arr = [-3, -2, 0, 0, 1, 2, 10, 12, 30, 77, 77, 100, 632, 700, 788]
 target = 632
-arr = ['aaaaaa', 'aab', 'askhv', 'kbhvg', 'kghsdka', 'qkgasv', 'sdws', 'vhbs', 'zsdkvhb']
-target = "qkgasv"
+# arr = ['aaaaaa', 'aab', 'askhv', 'kbhvg', 'kghsdka', 'qkgasv', 'sdws', 'vhbs', 'zsdkvhb']
+# target = "qkgasv"
 
 start = 0
 end = len(arr)-1
