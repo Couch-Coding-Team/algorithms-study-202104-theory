@@ -5,8 +5,7 @@
 ## 1) 직관적인 이해
 
 예시를 들어서 이해하는게 가장 빠릅니다!
-
-![123123](/Users/yonghoonlee/Desktop/123123.png)
+<img width="818" alt="123123" src="https://user-images.githubusercontent.com/56704377/119333306-aacb6380-bcc4-11eb-8cf0-f02fd70df5e4.png">
 
 가장 중간이 되는 값을 찾고 목표가 되는 값을 비교하여 어떤 부분만을 다시 탐색할 것이냐 만을 결정하면 됨
 
