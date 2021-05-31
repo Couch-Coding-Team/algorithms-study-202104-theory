@@ -41,43 +41,34 @@
 - 스택을 사용하는 방법도 있다
  <img width="841" alt="image" src="https://user-images.githubusercontent.com/56704377/120163082-13ba5a80-c234-11eb-809b-09aa044b4716.png">
 
-	
+```python
+N = int(input())
+M = int(input())
+graph = [[] for _ in range(N+1)]
+
+for _ in range(M):
+    a, b = map(int, input().split())
+    graph[a].append(b)
+    graph[b].append(a)
+
+# 1. DFS(stack)
+stack = []
+visited = [False] * (N+1)
+stack.append(1)
+visited[1] = True
+ans = -1
+while (stack):
+    popped = stack.pop()
+    ans += 1
+    for vertex in graph[popped]:
+        if (visited[vertex] == False):
+            stack.append(vertex)
+            visited[vertex] = True
+print(ans)
+```
+
 ### 너비 우선 탐색(BFS)
 - 가까운 vertex를 먼저 방문하고 멀리 떨어져 있는 vertex를 나중에 방문하는 방법이다
 - 큐를 사용해야만 한다
 - 큐가 empty일때 까지 탐색을 계속 진행한다
 - 처음에는 시작 vertex의 값을 enqueue한다!
-
-
-```python
-import collections
-def solution(begin, target, words):
-    parents = [begin]
-    graph = collections.defaultdict(list)
-    ans = []
-    while (parents):
-        childs = []
-        for parent in parents:
-            for child in words:
-                if (child in graph): continue
-                count = 0
-                for i in range(len(parent)):
-                    if (parent[i] != child[i]):
-                        count += 1
-                if (count == 1 and child not in parents):
-                    graph[parent].append(child)
-                    if (child not in childs): childs.append(child)
-        parents = childs
-    def dfs(key, depth):
-        if (key not in graph): return
-        else:
-            depth += 1
-            for child in graph[key]:
-                if (child == target):
-                    ans.append(depth)
-                    return
-                else: dfs(child, depth)
-    dfs(begin, 0)
-    if (ans): return ans[0]
-    else: return 0
-```
