@@ -40,12 +40,7 @@
 - 시작 vertex에서 시작해서 방문하지 않은 vertex를 방문한다. 방문하지 않은 vertex가 없는 상태라면(=더이상 진행이 안되면) 다시 돌아온다. 그런 뒤에 아직 방문되지 않은 vertex에 대하여 위의 과정을 거친다. 즉, recursive하게 구현이 가능하다
 - 스택을 사용하는 방법도 있다
  <img width="841" alt="image" src="https://user-images.githubusercontent.com/56704377/120163082-13ba5a80-c234-11eb-809b-09aa044b4716.png">
- ```python
-# 1. DFS(stack)
-# 첫 시작 노드를 stack에 push 해준다 && visited 처리 해준다
-# while(stack):
-#     stack.pop() 하고 출력한다
-#     pop된 노드의 주변 노드를 for문 돌며 전부 stack에 push해준다 && visited 처리해준다
+```python
 N = int(input())
 M = int(input())
 graph = [[] for _ in range(N+1)]
@@ -69,7 +64,7 @@ while (stack):
             stack.append(vertex)
             visited[vertex] = True
 print(ans)
- ```
+```
 
 	
 ### 너비 우선 탐색(BFS)
