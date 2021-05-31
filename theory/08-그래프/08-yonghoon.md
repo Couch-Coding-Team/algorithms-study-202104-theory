@@ -50,8 +50,11 @@ for _ in range(M):
     a, b = map(int, input().split())
     graph[a].append(b)
     graph[b].append(a)
-
 # 1. DFS(stack)
+# 첫 시작 노드를 stack에 push 해준다 && visited 처리 해준다
+# while(stack):
+#     stack.pop() 하고 출력한다
+#     pop된 노드의 주변 노드를 for문 돌며 전부 stack에 push해준다 && visited 처리해준다
 stack = []
 visited = [False] * (N+1)
 stack.append(1)
@@ -65,6 +68,21 @@ while (stack):
             stack.append(vertex)
             visited[vertex] = True
 print(ans)
+
+# 2. DFS(recursive)
+# 함수 시작하자마자 입력받은 노드 print && visited 처리 해준다
+# 입력받은 노드의 주변 노드를 for문 돌며 방문하지 않는 노드 발견하자마자 dfs함수 실행한다
+# 참고: return 되는 것은 없음
+visited = [False] * (N+1)
+ans = [-1]
+def dfs(start):
+    ans[0] += 1
+    visited[start] = True
+    for vertex in graph[start]:
+        if (visited[vertex] == False):
+            dfs(vertex)
+dfs(1)
+print(ans[0])
 ```
 
 ### 너비 우선 탐색(BFS)
@@ -72,3 +90,24 @@ print(ans)
 - 큐를 사용해야만 한다
 - 큐가 empty일때 까지 탐색을 계속 진행한다
 - 처음에는 시작 vertex의 값을 enqueue한다!
+
+```python
+# 3. BFS
+# 첫 시작 노드를 queue에 enqueue 해준다 && visited 처리 해준다
+# while (queue):
+#     dequeue하고 출력한다
+#     dequeue된 노드의 주변 노드를 for문 돌며 전부 queue에 push해준다 && visited 처리해준다
+queue = []
+visited = [False] * (N+1)
+queue.append(1)
+visited[1] = True
+ans = -1
+while (queue):
+    front = queue.pop(0)
+    ans += 1
+    for vertex in graph[front]:
+        if (visited[vertex] == False):
+            queue.append(vertex)
+            visited[vertex] = True
+print(ans)
+```
