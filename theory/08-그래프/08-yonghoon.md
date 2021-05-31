@@ -40,6 +40,15 @@
 - 시작 vertex에서 시작해서 방문하지 않은 vertex를 방문한다. 방문하지 않은 vertex가 없는 상태라면(=더이상 진행이 안되면) 다시 돌아온다. 그런 뒤에 아직 방문되지 않은 vertex에 대하여 위의 과정을 거친다. 즉, recursive하게 구현이 가능하다
 - 스택을 사용하는 방법도 있다
  <img width="841" alt="image" src="https://user-images.githubusercontent.com/56704377/120163082-13ba5a80-c234-11eb-809b-09aa044b4716.png">
+
+	
+### 너비 우선 탐색(BFS)
+- 가까운 vertex를 먼저 방문하고 멀리 떨어져 있는 vertex를 나중에 방문하는 방법이다
+- 큐를 사용해야만 한다
+- 큐가 empty일때 까지 탐색을 계속 진행한다
+- 처음에는 시작 vertex의 값을 enqueue한다!
+
+
 ```python
 import collections
 def solution(begin, target, words):
@@ -72,10 +81,3 @@ def solution(begin, target, words):
     if (ans): return ans[0]
     else: return 0
 ```
-
-	
-### 너비 우선 탐색(BFS)
-- 가까운 vertex를 먼저 방문하고 멀리 떨어져 있는 vertex를 나중에 방문하는 방법이다
-- 큐를 사용해야만 한다
-- 큐가 empty일때 까지 탐색을 계속 진행한다
-- 처음에는 시작 vertex의 값을 enqueue한다!
