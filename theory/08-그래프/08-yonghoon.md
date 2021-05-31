@@ -41,29 +41,7 @@
 - 스택을 사용하는 방법도 있다
  <img width="841" alt="image" src="https://user-images.githubusercontent.com/56704377/120163082-13ba5a80-c234-11eb-809b-09aa044b4716.png">
 ```python
-N = int(input())
-M = int(input())
-graph = [[] for _ in range(N+1)]
-
-for _ in range(M):
-    a, b = map(int, input().split())
-    graph[a].append(b)
-    graph[b].append(a)
-
-# 1. DFS(stack)
-stack = []
-visited = [False] * (N+1)
-stack.append(1)
-visited[1] = True
-ans = -1
-while (stack):
-    popped = stack.pop()
-    ans += 1
-    for vertex in graph[popped]:
-        if (visited[vertex] == False):
-            stack.append(vertex)
-            visited[vertex] = True
-print(ans)
+print('hello')
 ```
 
 	
